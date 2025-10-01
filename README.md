@@ -83,12 +83,12 @@ Este diagrama combina os três serviços para uma aplicação web escalável, se
 ```mermaid
 graph TD
     subgraph AWS_Cloud_Web [AWS Cloud: Web Application]
-        subgraph Compute_Layer [Compute Layer (AZ)]
+        subgraph Compute_Layer [Compute Layer AZ]
             EC2[AWS EC2 Instance: Servidor da Aplicação]
             EC2 --> EBS[AWS EBS Volume: SO e Logs de Aplicação]
         end
         S3[AWS S3: Arquivos Estáticos/Mídia]
-        
+
         ELB[AWS ELB/ALB: Load Balancer] --> EC2
         EC2 -->|Acesso a Conteúdo Estático| S3
         User[Usuário] --> ELB
