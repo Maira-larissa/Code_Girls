@@ -68,8 +68,8 @@ Este cenário *serverless* demonstra uma arquitetura orientada a eventos, onde o
 
 ```mermaid
 graph TD
-    subgraph AWS Cloud (Serverless Architecture)
-        S3(AWS S3 Bucket: Input de Imagens) -->|Gatilho: Evento PUT| Lambda(AWS Lambda Function: Redimensionamento/Análise)
+    subgraph AWS_Cloud_Serverless [AWS Cloud: Serverless Architecture]
+        S3[AWS S3 Bucket: Input de Imagens] -->|Gatilho: Evento PUT| Lambda[AWS Lambda Function: Redimensionamento/Análise]
         Lambda --> S3_OUTPUT[AWS S3 Bucket: Imagens Processadas]
         Lambda --> CloudWatch[AWS CloudWatch: Logs de Execução]
     end
@@ -82,16 +82,16 @@ Este diagrama combina os três serviços para uma aplicação web escalável, se
 
 ```mermaid
 graph TD
-    subgraph AWS Cloud (Web Application)
-        subgraph Compute Layer (AZ)
-            EC2(AWS EC2 Instance: Servidor da Aplicação)
-            EC2 --> EBS(AWS EBS Volume: SO e Logs de Aplicação)
+    subgraph AWS_Cloud_Web [AWS Cloud: Web Application]
+        subgraph Compute_Layer [Compute Layer (AZ)]
+            EC2[AWS EC2 Instance: Servidor da Aplicação]
+            EC2 --> EBS[AWS EBS Volume: SO e Logs de Aplicação]
         end
-        S3(AWS S3: Arquivos Estáticos/Mídia)
+        S3[AWS S3: Arquivos Estáticos/Mídia]
         
         ELB[AWS ELB/ALB: Load Balancer] --> EC2
         EC2 -->|Acesso a Conteúdo Estático| S3
-        User(Usuário) --> ELB
+        User[Usuário] --> ELB
         User -->|Conteúdo via CDN| S3
     end
 ```
