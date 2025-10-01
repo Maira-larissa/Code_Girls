@@ -52,8 +52,8 @@ Este cenário foca na persistência dos dados da aplicação, utilizando o EBS c
 
 ```mermaid
 graph TD
-    subgraph AWS Cloud (Region)
-        subgraph EC2 Hosting (Availability Zone)
+    subgraph AWS_Cloud [AWS Cloud (Region)]
+        subgraph EC2_Hosting [EC2 Hosting (Availability Zone)]
             EC2[AWS EC2 Instance: Servidor de Aplicação] -->|Anexo de Rede| EBS(AWS EBS Volume: Disco Persistente)
             EBS --> Data(Dados Transacionais/SO)
         end
